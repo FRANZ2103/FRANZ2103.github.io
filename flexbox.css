@@ -155,7 +155,8 @@ height: 80%;
 .splitter > .child1{
   background-color: transparent; /* Remove background color */
 align-self: center;
-  font-size: clamp(2rem, 0.1vw, 0.1rem); /* Scales between 1rem and 2rem */
+  /*font-size: clamp(2rem, 0.1vw, 0.1rem); /* Scales between 1rem and 2rem */
+  font-size: smaller;
   padding: 20px;
   /* margin: 50vh; */
   min-width: 20%;
@@ -194,9 +195,9 @@ align-self: center;
   border-style: solid;
 
 }
-  .splitter h1 {
+  /* .splitter h1 {
       font-size: 0.2rem; /* Adjust font size */
-  }
+  } */
   .flex-container2 > .title1{
   min-height: 100vh; 
   background-color: rgba(40, 40, 40, 0.5);
