@@ -128,6 +128,8 @@ height: 80%;
     width: 100%; 
     align-content: center;
    text-align: center;
+  font-size: clamp(2rem, 0.1vw, 0.1rem); /* Scales between 1rem and 2rem */
+
     justify-items: center;
     font-family:Arial, Helvetica, sans-serif;
     font-size:large;
