@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Navbar</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
+    <style>
+        /* Basic styling */
+        body {
+            margin: 0;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+
+        /* Hamburger menu styling */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger-menu span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 3px;
+            transition: transform 0.3s;
+        }
+
+        /* Mobile navigation menu styling */
+        .nav-links-mobile {
+            display: none;
+            flex-direction: column;
+            background-color: #333;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            padding: 10px 0;
+            z-index: 999;
+        }
+
+        .nav-links-mobile a {
+            padding: 10px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links-mobile a:hover {
+            background-color: #575757;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide desktop links */
+            }
+
+            .hamburger-menu {
+                display: flex; /* Show hamburger menu */
+            }
+
+            .nav-links-mobile.active {
+                display: flex; /* Show mobile links when active */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <!-- Logo section -->
+        <div class="logo">
+            <img src="logo.png" alt="Logo"> <!-- Replace 'logo.png' with your logo file path -->
+        </div>
+
+        <!-- Hamburger menu for mobile -->
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Navigation links for desktop -->
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <!-- Navigation links for mobile -->
+        <div class="nav-links-mobile" id="mobileMenu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" style="height: 100vh; background-color: lightgray;">
+            <h1>Welcome to the Homepage</h1>
+            <p>This is the home section content.</p>
+        </section>
+        <section id="about" style="height: 100vh; background-color: lightblue;">
+            <h1>About Us</h1>
+            <p>This is the about section content.</p>
+        </section>
+        <section id="services" style="height: 100vh; background-color: lightgreen;">
+            <h1>Our Services</h1>
+            <p>This is the services section content.</p>
+        </section>
+        <section id="contact" style="height: 100vh; background-color: lightcoral;">
+            <h1>Contact Us</h1>
+            <p>This is the contact section content.</p>
+        </section>
+    </main>
+
+    <script>
+        // Function to toggle mobile navigation menu
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
