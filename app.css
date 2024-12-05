@@ -1,0 +1,220 @@
+p{
+    text-indent:50px;
+    text-align: justify;
+ }
+/* 
+html, body {
+    height: 100%; /* Make sure html and body take full height */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Use flexbox for the layout */
+    flex-direction: column; /* Arrange children in a column 
+
+} */html, body {
+    height: 100%; /* Ensure full height */
+    margin: 0; /* Remove default margin */
+}
+.body-container {
+    padding: 20px;
+    margin-top: 70px; /* Adjust to the height of your navbar */
+}
+
+
+
+
+
+/* Footer styling */
+.footer {
+    width: 100%;                     /* Ensure the footer container spans full width */
+    display: flex;                   /* Use flexbox for alignment */
+    justify-content: center;         /* Center the content horizontally */
+    align-items: center;             /* Center the content vertically */
+    background-color: #CBF7ED; /* Match footer color */
+}
+
+footer {
+    
+    font-family: 'Times New Roman', Times, serif;
+    color: #100D08;                    /* Text color */
+    text-align: center;              /* Center the text inside the footer */
+    padding: 10px;                   /* Padding around the footer */
+}
+
+.nav2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    background-color: rgb(34, 37, 49);
+    z-index: 1000;
+}
+
+.nav2 .logo img {
+    height: 80px;                /* Set the height of the logo */
+    width: auto;                 /* Maintain aspect ratio */
+}
+
+.center-links {
+    display: flex;               /* Use Flexbox for center links */
+    align-items: center;         /* Vertically center links */
+    margin: 0 20px;             /* Add margin for spacing around center links */
+}
+
+/* Navbar links */
+.center-links a {
+    color: white;                /* Link color */
+    text-decoration: none;        /* Remove underline */
+    padding: 14px 20px;          /* Padding for links */
+    transition: background 0.3s;  /* Smooth background transition */
+}
+
+/* Change background color on hover */
+.center-links a:hover {
+    background-color: #575757;   /* Darker background on hover */
+}
+
+.container {
+    height: 300px; /* Set the height of the container */
+    width: 700px;  /* Set the width of the container */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+    margin: 50px auto;       /* Center the container itself horizontally on the page */
+}
+
+h3 {
+    font-size: larger;
+    color: #221212;
+    opacity: 100;
+}
+
+/* base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+a {
+    color: white;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: #6F86FF;
+}
+
+/* off-screen-menu */
+.off-screen-menu {
+    background-color: rgb(34, 37, 49);
+    height: 100vh;
+    width: 100%;
+    max-width: 450px;
+    position: fixed;
+    top: 0;
+    right: -450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    justify-content: center;
+    text-align: left;
+    font-size: 1.5rem;
+    transition: .3s ease;
+}
+
+.off-screen-menu.active {
+    right: 0;
+}
+
+/* ham menu */
+.ham-menu {
+    height: 50px;
+    width: 40px;
+    margin-left: auto;
+    position: relative;
+}
+
+.ham-menu span {
+    height: 5px;
+    width: 100%;
+    background-color: #6F86FF;
+    border-radius: 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+}
+
+.ham-menu span:nth-child(1) {
+    top: 25%;
+}
+
+.ham-menu span:nth-child(3) {
+    top: 75%;
+}
+
+.ham-menu.active span {
+    background-color: white;
+}
+
+.ham-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.ham-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.ham-menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+/* Existing styles remain the same */
+
+/* Media query for screens smaller than 768px (tablet/mobile) */
+@media (max-width: 768px) {
+    .nav2 {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items */
+        padding: 10px; /* Adjust padding */
+    }
+
+    .center-links {
+        flex-direction: column; /* Stack center links vertically */
+        align-items: center; /* Center links */
+        position: sticky; /* Change to relative positioning */
+        transform: translateX(0); /* Reset the translation */
+    }
+
+    .center-links a {
+        padding: 10px 0; /* Adjust padding for mobile */
+        text-align: center; /* Center text */
+    }
+
+    .ham-menu {
+        margin-top: 10px; /* Space from the links */
+    }
+}
+
+/* Optionally, for screens smaller than 480px (mobile phones) */
+@media (max-width: 480px) {
+    .nav2 {
+        padding: 5px; /* Adjust padding for smaller screens */
+    }
+
+    .nav2 .logo img {
+        height: 60px; /* Smaller logo size */
+    }
+
+    h3 {
+        font-size: 30px; /* Smaller font size */
+    }
+}

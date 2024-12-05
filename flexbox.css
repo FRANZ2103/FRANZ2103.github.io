@@ -1,0 +1,188 @@
+
+.flex-container2{
+  min-height: 100vh;
+  display: flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+  background-image:url('bg.png');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  justify-content:space-evenly;
+  align-items:center;
+  background-attachment: fixed;
+}
+
+.flex-container2 > .title1{
+  min-height: 100vh; 
+  background-color: rgba(40, 40, 40, 0.5);
+  width: 100%; 
+  align-content: center;
+ 
+  justify-items: center;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:xx-large;
+  color: antiquewhite;
+}
+
+.flex-container2 > .splitter{
+  min-height: 100vh;
+  display: flex; 
+  flex-direction: row; 
+  width: 100%; 
+  justify-content: center;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:xx-large;
+  height: 100px;
+  color: #CBF7ED;
+  margin: 80px 0;
+}
+
+.splitter > .child1{
+  background-color: rgba(35,40,54);
+  font-size: clamp(2rem, 0.1vw, 0.1rem); /* Scales between 1rem and 2rem */
+  overflow-wrap: break-word; /* Modern syntax */
+
+  padding: 20px;
+  min-width: 30%;
+  display: flex; 
+  justify-content: center; 
+  height: 80%;
+  border-right: 5px solid #CBF7ED; 
+  align-items: center;
+  /* flex-shrink: 5; */
+margin: 15vh 0;
+  
+}
+.splitter > .child2 {
+  font-size: clamp(1rem, 1vw, 3rem); /* Scales between 1rem and 2rem */
+
+margin: 15vh 0;
+height: 80%;
+  background-color: rgba(35,40,54);
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  overflow-wrap: break-word; 
+  padding: 20px;
+  border-left: 5px solid #CBF7ED; 
+
+}
+
+.splitter > .child3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: large;
+margin: 15vh 0;
+height: 80%;
+  background-color: rgba(35,40,54);
+  width: 60%;
+  justify-items: center;
+  overflow-wrap: break-word; /* Modern equivalent */
+  padding: 20px;
+
+}
+.flex-container2 > .splitter2{
+  min-height: 50vh;
+  display: flex; 
+  flex-direction: column; 
+  width: 100%; 
+  align-items: start;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:xx-large;
+  color: #CBF7ED;
+  margin: 35px 0;
+}
+
+.splitter2 > .child1{
+  /* background-color: rgba(35,40,54); */
+  font-size: clamp(2rem, 0.1vw, 0.1rem); /* Scales between 1rem and 2rem */
+  padding: 20px;
+  margin-top: 15vh;
+  width: 20%;
+  
+}
+.splitter2 > .child2 {
+  font-size: clamp(1rem, 1vw, 3rem); /* Scales between 1rem and 2rem */
+  min-width: 30%;
+  margin: 5vh 0;
+  height: 80%;
+  background-color: rgba(35,40,54);
+  max-width: 70%;
+  padding: 20px;
+  align-self: center;
+  border-radius: 10px;
+  border-color:#ffff;
+  border-width: 5px;
+  border-style: solid;
+
+}
+
+
+@media (max-width: 768px) {
+  
+.flex-container2 > .splitter{
+  min-height: 100vh;
+  height: auto;
+  display: flex; 
+  flex-direction: column; 
+  width: 100%; 
+  align-items: start;
+  align-content: space-evenly;
+  justify-content: space-evenly;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:xx-large;
+  color: #CBF7ED;
+  margin: 35px 0;
+  gap: 100px; /* Adds space between items */
+
+}
+
+.splitter > .child1{
+  background-color: transparent; /* Remove background color */
+align-self: center;
+  font-size: clamp(2rem, 0.1vw, 0.1rem); /* Scales between 1rem and 2rem */
+  padding: 20px;
+  /* margin: 50vh; */
+  min-width: 20%;
+  margin-bottom: 10%;
+  border-color: transparent;
+  
+}
+.splitter > .child2 {
+  font-size: clamp(1rem, 1vw, 3rem); /* Scales between 1rem and 2rem */
+  min-width: 30%;
+  margin: 5vh 0;
+  min-height: 100vh;
+  background-color: rgba(35,40,54);
+  max-width: 70%;
+  padding: 20px;
+  align-self: center;
+  border-radius: 10px;
+  border-color:#ffff;
+  border-width: 5px;
+  border-style: solid;
+
+}
+
+.splitter > .child3 {
+  font-size: clamp(1rem, 1vw, 3rem); /* Scales between 1rem and 2rem */
+  min-width: 30%;
+  margin: 5vh 0;
+  min-height: 100vh;
+  background-color: rgba(35,40,54);
+  max-width: 70%;
+  padding: 20px;
+  align-self: center;
+  border-radius: 10px;
+  border-color:#ffff;
+  border-width: 5px;
+  border-style: solid;
+
+}
+  .splitter h1 {
+      font-size: 0.2rem; /* Adjust font size */
+  }
+}
