@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stylized Video Player</title>
+  <style>
+    /* Video player styling - can be moved to a separate CSS file */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .video-player {
+      position: relative;
+      width: 80%;
+      max-width: 720px;
+      border: 2px solid #444;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #000;
+    }
+
+    .video {
+      width: 100%;
+      display: block;
+      cursor: pointer;
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .video-player:hover .controls {
+      opacity: 1;
+    }
+
+    .controls button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    .controls button:hover {
+      color: #1e90ff;
+    }
+
+    .progress-bar {
+      flex-grow: 1;
+      height: 5px;
+      margin: 0 10px;
+      background: #444;
+      border-radius: 3px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .progress-bar span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: #1e90ff;
+      border-radius: 3px;
+    }
+
+    .time {
+      font-size: 14px;
+    }
+
+    .volume-slider {
+      width: 100px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Video player container - you can embed this in your HTML -->
+  <div class="video-player">
+    <video class="video" src="my_video.mp4"></video>
+    <div class="controls">
+      <button id="play-pause">&#9658;</button>
+      <div class="progress-bar">
+        <span></span>
+      </div>
+      <div class="time">
+        <span id="current-time">0:00</span> / <span id="total-time">0:00</span>
+      </div>
+      <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.01" value="1">
+    </div>
+  </div>
+
+  <script>
+    // JavaScript for video player functionality - can be moved to a separate JS file
+    const video = document.querySelector('.video');
+    const playPauseButton = document.getElementById('play-pause');
+    const progressBar = document.querySelector('.progress-bar');
+    const progress = progressBar.querySelector('span');
+    const currentTimeElement = document.getElementById('current-time');
+    const totalTimeElement = document.getElementById('total-time');
+    const volumeSlider = document.getElementById('volume-slider');
+
+    // Format time helper function
+    const formatTime = (time) => {
+      const minutes = Math.floor(time / 60);
+      const seconds = Math.floor(time % 60).toString().padStart(2, '0');
+      return `${minutes}:${seconds}`;
+    };
+
+    // Play/Pause functionality
+    playPauseButton.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        playPauseButton.innerHTML = '&#10074;&#10074;'; // Pause icon
+      } else {
+        video.pause();
+        playPauseButton.innerHTML = '&#9658;'; // Play icon
+      }
+    });
+
+    // Pause/play video on click anywhere in the video window
+    video.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        playPauseButton.innerHTML = '&#10074;&#10074;'; // Pause icon
+      } else {
+        video.pause();
+        playPauseButton.innerHTML = '&#9658;'; // Play icon
+      }
+    });
+
+    // Update progress bar and time
+    video.addEventListener('timeupdate', () => {
+      const currentTime = video.currentTime;
+      const duration = video.duration;
+      progress.style.width = `${(currentTime / duration) * 100}%`;
+      currentTimeElement.textContent = formatTime(currentTime);
+    });
+
+    // Update total time when video metadata is loaded
+    video.addEventListener('loadedmetadata', () => {
+      totalTimeElement.textContent = formatTime(video.duration);
+    });
+
+    // Seek functionality
+    progressBar.addEventListener('click', (e) => {
+      const rect = progressBar.getBoundingClientRect();
+      const offsetX = e.clientX - rect.left;
+      const width = rect.width;
+      const duration = video.duration;
+      video.currentTime = (offsetX / width) * duration;
+    });
+
+    // Volume slider functionality
+    volumeSlider.addEventListener('input', (e) => {
+      video.volume = e.target.value;
+    });
+  </script>
+</body>
+</html>
