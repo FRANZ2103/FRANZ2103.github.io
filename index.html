@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./app.css" />
     <link rel="stylesheet" href="./flexbox.css" />
+    <link rel="stylesheet" href="./vidplayer.css" />
     <link rel="stylesheet" href="./nav.css" />
     <title>Group 1 | Gen Chem</title>
     <link rel="icon" type="image/x-icon" href="grp1d.png">
@@ -32,6 +33,7 @@
                 <a href="#hyp">Hypothesis </a>
                 <a href="#mat">Materials</a>
                 <a href="#pro">Procedures</a>
+                <a href="#pro-vid">Video</a>
                 <a href="#mats">Material Safety</a>
                 <a href="index.html#analysis">Analysis</a>
                 <a href="#conc">Conclusion</a>
@@ -46,6 +48,7 @@
                 <a href="#hyp">Hypothesis </a>
                 <a href="#mat">Materials</a>
                 <a href="#pro">Procedures</a>
+                <a href="#pro-vid">Video</a>
                 <a href="#mats">Material Safety</a>
                 <a href="index.html#analysis">Analysis</a>
                 <a href="#conc">Conclusion</a>
@@ -141,6 +144,26 @@
   
         </div>
     </div>
+    <div id="pro-vid" class="video-container">
+    <div class="video-player" id="pro-vid">
+        <video class="video" src="chem.mp4"></video>
+        <div class="controls">
+            <button id="rewind">&#9664; 10s</button>
+            <button id="play-pause">&#9658;</button>
+            <button id="forward">10s &#9654;</button>
+            <div class="progress-bar">
+            <span></span>
+          </div>
+          <div class="volume-control">
+            <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+          </div>
+          <div class="time">
+            <span id="current-time">0:00</span> / <span id="total-time">0:00</span>
+          </div>
+          <button id="fullscreen">⛶</button>
+        </div>
+      </div>
+    </div>
         <div id="mats" class="splitter" >
             <div class="child1">
         <h2>Material Safety</h2><br></div>
@@ -220,5 +243,6 @@ To enhance the filtration process, increasing the depth of each layer, particula
             mobileMenu.classList.toggle('active');
         }
     </script>
+    <script src="vidplayer.js"></script>
 </body>
 </html>

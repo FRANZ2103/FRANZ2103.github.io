@@ -33,7 +33,9 @@ html, body {
 
 footer {
     
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
+  font-family:Arial, Helvetica, sans-serif;
+
     color: #100D08;                    /* Text color */
     text-align: center;              /* Center the text inside the footer */
     padding: 10px;                   /* Padding around the footer */

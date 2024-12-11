@@ -72,15 +72,21 @@
     </div>
     <!-- Video player container - you can embed this in your HTML -->
   <div class="video-player">
-    <video class="video" src="test.mp4"></video>
+    <video class="video" src="chem.mp4"></video>
     <div class="controls">
-      <button id="play-pause">&#9658;</button>
-      <div class="progress-bar">
+        <button id="rewind">&#9664; 10s</button>
+        <button id="play-pause">&#9658;</button>
+        <button id="forward">10s &#9654;</button>
+        <div class="progress-bar">
         <span></span>
+      </div>
+      <div class="volume-control">
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
       </div>
       <div class="time">
         <span id="current-time">0:00</span> / <span id="total-time">0:00</span>
       </div>
+      <button id="fullscreen">⛶</button>
     </div>
   </div>
 
@@ -165,60 +171,8 @@
     <footer>
         <p>&copy; Created by Group 1</p>
     </footer></div>
-    <script>
-        // Function to toggle mobile navigation menu
-        function toggleMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('active');
-        }
-
-        // JavaScript for video player functionality - can be moved to a separate JS file
-    const video = document.querySelector('.video');
-    const playPauseButton = document.getElementById('play-pause');
-    const progressBar = document.querySelector('.progress-bar');
-    const progress = progressBar.querySelector('span');
-    const currentTimeElement = document.getElementById('current-time');
-    const totalTimeElement = document.getElementById('total-time');
-
-    // Format time helper function
-    const formatTime = (time) => {
-      const minutes = Math.floor(time / 60);
-      const seconds = Math.floor(time % 60).toString().padStart(2, '0');
-      return `${minutes}:${seconds}`;
-    };
-
-    // Play/Pause functionality
-    playPauseButton.addEventListener('click', () => {
-      if (video.paused) {
-        video.play();
-        playPauseButton.innerHTML = '&#10074;&#10074;'; // Pause icon
-      } else {
-        video.pause();
-        playPauseButton.innerHTML = '&#9658;'; // Play icon
-      }
-    });
-
-    // Update progress bar and time
-    video.addEventListener('timeupdate', () => {
-      const currentTime = video.currentTime;
-      const duration = video.duration;
-      progress.style.width = `${(currentTime / duration) * 100}%`;
-      currentTimeElement.textContent = formatTime(currentTime);
-    });
-
-    // Update total time when video metadata is loaded
-    video.addEventListener('loadedmetadata', () => {
-      totalTimeElement.textContent = formatTime(video.duration);
-    });
-
-    // Seek functionality
-    progressBar.addEventListener('click', (e) => {
-      const rect = progressBar.getBoundingClientRect();
-      const offsetX = e.clientX - rect.left;
-      const width = rect.width;
-      const duration = video.duration;
-      video.currentTime = (offsetX / width) * duration;
-    });
+    <script src="vidplayer.js">
+         
     </script>
 </body>
 </html>
